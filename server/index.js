@@ -4,8 +4,8 @@ const app = express();
 const mongoose = require('mongoose');
 const cors = require('cors');
 const session = require('express-session');
-const morgan = require('morgan');
 const cookieParser = require('cookie-parser');
+
 
 const PORT = process.env.PORT ||3000;
 //database connection

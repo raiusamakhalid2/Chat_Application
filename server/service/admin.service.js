@@ -1,5 +1,6 @@
 const AdminModel = require("../models/AdminModel");
 
+
 class AdminService {
     // read
     async read(req, res) {
@@ -13,10 +14,20 @@ class AdminService {
     }
 
     //create
-    async createAdmin(req, res) {
+    async createAdmin(name, email, hashedPassword, filename, path) {
         try {
-            const creatadmin = await AdminModel.create(req.body)
-            return creatadmin
+          const createAdmin = await AdminModel.create({
+            name: name,
+            email: email,
+            password: hashedPassword,
+            img: {
+              filename: filename,
+              path: path,
+            },
+          });
+      
+          return createAdmin;
+
         } catch (error) {
             console.log(error)
         }

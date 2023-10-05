@@ -1,9 +1,9 @@
 const {
-    createAdmin,
     read,
     getAdminbyid,
     updateAdmin,
-    deletAdmin
+    deletAdmin,
+    createAdmin,
 } = require("../service/admin.service");
 
 class AdminController {
@@ -18,9 +18,14 @@ class AdminController {
     }
 
     async create_admin(req, res) {
+        console.log(req.file)
         try {
-            const adminCreated = await createAdmin(req, res)
-            res.json(adminCreated)
+            const { filename, path } = req.file;
+
+            const { name, email, hashedPassword } = req.body;
+            await createAdmin(name, email, hashedPassword, filename, path);
+        
+            res.status(200).send('File and Admin details uploaded successfully.');
         } catch (error) {
             console.error(error)
         }
