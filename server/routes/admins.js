@@ -2,7 +2,6 @@ const express = require('express');
 const multer = require('multer');
 const router = express.Router();
 const adminController = require('../controller/admin.controller');
-
 const GridFsStorage = require('multer-gridfs-storage').GridFsStorage;
 const crypto = require('crypto');
 

@@ -39,11 +39,14 @@ app.use((req, res, next) => {
 
 
 
-const user = require('./routes/users');
-app.use("/user", user);
+const user = require('./routes/loginsignup');
+app.use(user);
 
 const admin = require('./routes/admins');
-app.use("/", admin)
+app.use(admin)
+
+const messanger = require('./routes/messenger');
+app.use(messanger);
 
 
 

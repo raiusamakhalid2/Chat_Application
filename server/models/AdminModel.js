@@ -16,6 +16,8 @@ const adminSchema = new mongoose.Schema({
         filename: String,
         path: String,
     }
-});
+},
+    { timestamps: true }
+);
 
-module.exports = mongoose.model('admins',  adminSchema);
+module.exports = mongoose.model('admins', adminSchema);
